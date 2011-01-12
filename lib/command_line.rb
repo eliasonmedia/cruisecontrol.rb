@@ -81,7 +81,7 @@ module CommandLine
     options[:env].each{|k,v| ENV[k]=v}
     begin
       CruiseControl::Log.debug "#{Platform.prompt} #{format_for_printing(cmd)}" if options[:stdout].nil?
-      result = IO.popen(full_cmd, options[:mode]) do |io|
+      result = IO.popen("source /etc/profile && #{full_cmd}", options[:mode]) do |io|
         if proc
           proc.call(io)
         else
