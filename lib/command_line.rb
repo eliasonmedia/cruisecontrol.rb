@@ -60,7 +60,7 @@ module CommandLine
     raise "Can't have newline in cmd" if cmd =~ /\n/
     options = {
         :dir => Dir.pwd,
-        :env => {:PATH => '/bin:/usr/bin:/usr/local/bin'},
+        :env => {:PATH => '/bin:/usr/bin:/usr/local/bin:.'},
         :mode => 'r',
         :exitstatus => 0 }.merge(options)
 
