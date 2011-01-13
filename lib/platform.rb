@@ -42,7 +42,6 @@ module Platform
   module_function :interpreter
 
   def create_child_process(project_name, command)
-    command = "source /etc/profile && #{command}"
     if Kernel.respond_to?(:fork)
       begin
         pid = fork || safely_exec(command)

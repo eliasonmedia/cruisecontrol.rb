@@ -30,7 +30,7 @@ class BuilderStarter
         end
 
     verbose_option = $VERBOSE_MODE ? " --trace" : ""
-    command = "#{cruise_executable} build #{project_name}#{verbose_option}"
+    command = "source /etc/profile && #{cruise_executable} build #{project_name}#{verbose_option}"
 
     Platform.create_child_process(project_name, command)
   end
