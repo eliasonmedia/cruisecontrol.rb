@@ -1,3 +1,5 @@
+$LOAD_PATH << '.' 
+
 require File.dirname(__FILE__) + '/../test_helper'
 
 class BuilderIntegrationTest < ActiveSupport::TestCase

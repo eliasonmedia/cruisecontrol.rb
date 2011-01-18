@@ -1,7 +1,11 @@
 # Add your own tasks in files placed in lib/tasks ending in .rake,
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+$LOAD_PATH << '.' 
+
 
 require(File.join(File.dirname(__FILE__), 'config', 'boot'))
+
+
 
 require 'rubygems'
 require 'rake'
@@ -24,24 +28,10 @@ RUBY_FORGE_PROJECT = "cruisecontrolrb"
 RUBY_FORGE_USER    = "stellsmi"
 
 
-desc 'Install development dependencies via GemInstaller'
-task :geminstaller do
-  begin
-    require 'geminstaller'
-  rescue LoadError
-    `gem install geminstaller`
-    Gem.refresh
-    require 'geminstaller'
-  end
-  
-  GemInstaller.install("--config=#{RAILS_ROOT}/test/geminstaller.yml -gall -rall")
-end
 
 begin
   require 'tasks/rails'
 rescue LoadError
-  Rake::Task['geminstaller'].invoke
-  Gem.refresh
   require 'tasks/rails'
 end
 

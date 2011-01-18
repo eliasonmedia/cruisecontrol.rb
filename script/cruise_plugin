@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+$LOAD_PATH << '.' 
+
 require File.dirname(__FILE__) + '/../config/boot'
 require 'commands/cruise_plugin'
 
