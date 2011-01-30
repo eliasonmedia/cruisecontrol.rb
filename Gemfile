@@ -4,7 +4,7 @@ gem 'rake', '0.8.7'
 gem 'rails', '2.3.10'
 gem 'oauth'
 gem 'hashie', '0.1.3'
-gem 'xml-simple'
+gem 'xml-simple', :require => 'xmlsimple'
 gem 'mocha'
 
 gem 'capistrano'
